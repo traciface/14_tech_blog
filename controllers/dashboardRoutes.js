@@ -24,7 +24,6 @@ router.get("/", (req, res) => {
     ],
   })
     .then((dbPostData) => {
-      // serialize data before passing to template
       const posts = dbPostData.map((post) => post.get({ plain: true }));
       res.render("dashboard", { posts, loggedIn: true });
     })
@@ -57,7 +56,7 @@ router.get("/edit/:id", (req, res) => {
   })
     .then((dbPostData) => {
       if (!dbPostData) {
-        res.status(404).json({ message: "Post not found" });
+        res.status(404).json({ message: "no such post" });
         return;
       }
       const post = dbPostData.get({ plain: true });

@@ -1,10 +1,9 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../../models");
 const sequelize = require("../../config/connection");
-const withAuth = require("../../utils/auth");
 
 // C- Create a post
-router.post("/", withAuth, (req, res) => {
+router.post("/",   (req, res) => {
     Post.create({
       title: req.body.title,
       content: req.body.content,
@@ -81,7 +80,7 @@ router.get("/:id", (req, res) => {
 });
 
 // U- update post title
-router.put("/:id", withAuth, (req, res) => {
+router.put("/:id",   (req, res) => {
   Post.update(
     {
       title: req.body.title,
@@ -107,7 +106,7 @@ router.put("/:id", withAuth, (req, res) => {
 });
 
 // D- delete a post
-router.delete("/:id", withAuth, (req, res) => {
+router.delete("/:id",   (req, res) => {
   //dont forget to also delete comments or else the foreign key constraints will mess things up
   Post.findOne({
     where: {id: req.params.id},
