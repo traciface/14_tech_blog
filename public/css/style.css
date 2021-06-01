@@ -1,6 +1,6 @@
 :root {
     --primary: #ccdad1;
-    --secondary: #9caea9;
+    --secondary: #8cada4;
     --tertiary: #788585;
     --light-dark: #6f6866;
     --dark: #38302e;
@@ -18,12 +18,7 @@
     line-height: 1.5;
     font-size: 16px;
    }
-   h1,
-   h2,
-   h3,
-   h4,
-   h5,
-   h6 {
+   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     margin: 0;
     color: var(--dark);
