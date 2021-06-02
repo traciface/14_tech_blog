@@ -43,4 +43,4 @@ Post.init(
 );
 //sets as post to export
 
-module.exports = post;
+module.exports = Post;
