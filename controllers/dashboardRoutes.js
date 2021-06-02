@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_content", "post_id", "user_id", "date_created"],
+        attributes: ["id", "commentContent", "post_id", "user_id", "date_created"],
         include: {
           model: User,
           attributes: ["username"],
@@ -23,8 +23,8 @@ router.get("/", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      const posts = dbPostData.map((post) => post.get({ plain: true }));
+    .then((postContent) => {
+      const posts = postContent.map((post) => post.get({ plain: true }));
       res.render("dashboard", { posts, loggedIn: true });
     })
     .catch((err) => {
@@ -46,7 +46,7 @@ router.get("/edit/:id", (req, res) => {
       },
       {
         model: Comment,
-        attributes: ["id", "comment_content", "post_id", "user_id", "date_created"],
+        attributes: ["id", "commentContent", "post_id", "user_id", "date_created"],
         include: {
           model: User,
           attributes: ["username"],
@@ -54,12 +54,12 @@ router.get("/edit/:id", (req, res) => {
       },
     ],
   })
-    .then((dbPostData) => {
-      if (!dbPostData) {
+    .then((postContent) => {
+      if (!postContent) {
         res.status(404).json({ message: "no such post" });
         return;
       }
-      const post = dbPostData.get({ plain: true });
+      const post = postContent.get({ plain: true });
       res.render("edit-post", { post, loggedIn: true });
     })
     .catch((err) => {

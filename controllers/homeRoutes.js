@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_content", "post_id", "user_id", "date_created"],
+        attributes: ["id", "commentContent", "post_id", "user_id", "date_created"],
         include: {
           model: User,
           attributes: ["username"],
@@ -54,7 +54,7 @@ router.get("/post/:id", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_content", "post_id", "user_id", "date_created"],
+        attributes: ["id", "commentContent", "post_id", "user_id", "date_created"],
         include: {
           model: User,
           attributes: ["username"],
@@ -93,7 +93,7 @@ router.get("/posts-comments", (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ["id", "comment_content", "post_id", "user_id", "date_created"],
+        attributes: ["id", "commentContent", "post_id", "user_id", "date_created"],
         include: {
           model: User,
           attributes: ["username"],
