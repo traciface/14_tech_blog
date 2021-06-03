@@ -59,6 +59,16 @@ router.post("/login", (req, res) => {
       });
   });
 
+  router.post("/logout", (req, res) => {
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
+  });
+  
 // R- gets the API users
 router.get("/", (req, res) => {
   User.findAll({
