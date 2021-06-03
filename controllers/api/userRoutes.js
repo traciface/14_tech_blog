@@ -68,7 +68,7 @@ router.post("/login", (req, res) => {
       res.status(404).end();
     }
   });
-  
+
 // R- gets the API users
 router.get("/", (req, res) => {
   User.findAll({
@@ -96,7 +96,7 @@ router.get("/:id", (req, res) => {
       //  Comment model here:
       {
         model: Comment,
-        attributes: ["id", "comment_text", "date_created"],
+        attributes: ["id", "commentContent", "date_created"],
         include: {
           model: Post,
           attributes: ["title"],

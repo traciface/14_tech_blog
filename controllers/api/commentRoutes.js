@@ -6,7 +6,7 @@ router.post("/",  (req, res) => {
     // if statement checks to see if signed in
     if (req.session) {
       Comment.create({
-        commentContent: req.body.commentContent,
+        commentContent: req.body.comment_text,
         post_id: req.body.post_id,
         user_id: req.session.user_id,
       })
